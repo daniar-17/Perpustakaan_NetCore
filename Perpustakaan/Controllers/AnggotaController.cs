@@ -51,9 +51,9 @@ namespace Perpustakaan.Controllers
         {
             try
             {
-                TempData["StatusSave"] = 1;
+                int statusInfo = 1;
                 int result = anggota.SaveDetails();
-                return Index(1);
+                return Index(statusInfo);
             }
             catch (Exception ex)
             {
@@ -67,9 +67,25 @@ namespace Perpustakaan.Controllers
         {
             try
             {
-                TempData["StatusSave"] = 1;
+                int statusInfo = 2;
                 int result = anggota.EditDetails();
-                return Index(1);
+                return Index(statusInfo);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        [HttpPost]
+        public Task<IActionResult> DeleteAnggotaForm(Anggota anggota)
+        {
+            try
+            {
+                int statusInfo = 3;
+                int result = anggota.DeleteDetails();
+                return Index(statusInfo);
             }
             catch (Exception ex)
             {

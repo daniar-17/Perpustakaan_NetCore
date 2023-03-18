@@ -8,7 +8,7 @@
     foreach (var anggotas in AnggotaList)
     {
         <tr class="">
-            <td>@anggotas.id</td>
+            <td>@datas</td>
             <td>@anggotas.id_anggota</td>
             <td>@anggotas.nama</td>
             <td>@anggotas.jenis_kelamin</td>
@@ -18,7 +18,7 @@
                         data-toggle="modal" data-target="#modal-default" data-id="@anggotas.id">
                     <i class="fa fa-edit"></i>
                 </button>
-                <button type="button" class="btn btn-sm btn-danger btn-delete" id="btn-delete">
+                <button class="btn btn-sm btn-danger btn-delete" name="submitForm" type="submit" id="btn-delete" data-id="@anggotas.id">
                     <i class="fa fa-trash"></i>
                 </button>
             </td>

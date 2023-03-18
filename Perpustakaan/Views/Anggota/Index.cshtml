@@ -56,15 +56,33 @@
                 "buttons": ["excel", "pdf"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
+            //Validasi SweetAlert [START]
             var nilai = @TempData["StatusSave"];
+            var urlHome = '@Url.Action("Index", "Anggota")';
+            let infoStatus = false;
+            let messageInfo = "";
             if (nilai == 1) {
+                messageInfo = "Data Berhasil di Simpan";
+                infoStatus = true;
+            } else if (nilai == 2) {
+                messageInfo = "Data Berhasil di Update";
+                infoStatus = true;
+            } else if (nilai == 3) {
+                messageInfo = "Data Berhasil di Hapus";
+                infoStatus = true;
+            }
+            if (infoStatus) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Data Berhasil Disimpan',
+                    title: messageInfo,
                     showConfirmButton: false,
                     timer: 1500
                 })
+                setTimeout(function () {
+                    window.location.replace(urlHome);
+                }, 1700);
             }
+            //Validasi SweetAlert [END]
 
             $(".btn-edit").on('click', function () {
                 var currentRow = $(this).closest("tr");
@@ -79,6 +97,46 @@
                 $("#alamat").val(dataAlamat);
                 $("#id").val(dataId);
             });
+
+            $('.btn-delete').on('click', function (e) {
+                var dataId = $(this).attr("data-id");
+                var formData = new FormData();
+                console.log(dataId);
+                formData.append("id", dataId);
+                var url = '@Url.Action("DeleteAnggotaForm", "Anggota")';
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: 'POST',
+                            url: url,
+                            data: {
+                                id : dataId
+                            },
+                            success: function (result) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Data Berhasil di Hapus',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            },
+                            error: function (status, ex) {
+                                alert("Error Code: Status: " + status + " Ex: " + ex);
+                            }
+                        });
+                    }
+                });
+            });
+
+        //Last Line
         });
     </script>
 }
