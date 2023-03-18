@@ -1,0 +1,38 @@
+﻿@{
+    List<Anggota> AnggotaList = (List<Anggota>)ViewData["AnggotaList"];
+}
+
+@if (AnggotaList.Count > 0)
+{
+    int datas = 1;
+    foreach (var anggotas in AnggotaList)
+    {
+        <tr class="">
+            <td>@anggotas.id</td>
+            <td>@anggotas.id_anggota</td>
+            <td>@anggotas.nama</td>
+            <td>@anggotas.jenis_kelamin</td>
+            <td>@anggotas.alamat</td>
+            <td>
+                <button type="button" class="btn btn-sm btn-secondary btn-edit" id="btn-edit"
+                        data-toggle="modal" data-target="#modal-default" data-id="@anggotas.id">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button type="button" class="btn btn-sm btn-danger btn-delete" id="btn-delete">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+        datas++;
+    }
+}
+else
+{
+    <tr>
+        <td colspan="10" style="text-align: center">
+            <div>
+                No Records
+            </div>
+        </td>
+    </tr>
+}
