@@ -424,3 +424,4 @@ C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\P
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.dll
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.pdb
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.genruntimeconfig.cache
+C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.csproj.AssemblyReference.cache
