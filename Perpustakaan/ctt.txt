@@ -1,0 +1,2 @@
+- Multiple Row in .net Core
+https://stackoverflow.com/questions/66543097/how-to-get-data-of-selected-rows-of-table-in-controller-using-ajax-in-asp-net-co

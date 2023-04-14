@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 using Perpustakaan.Models;
 
@@ -46,6 +47,22 @@ namespace Perpustakaan.Controllers
             }
         }
 
+        [HttpGet("anggota/add_multiple")]
+        public IActionResult AddMultipleAnggotaForm()
+        {
+            try
+            {
+                ViewData["Title"] = "Tambah Anggota Multiple";
+                ViewData["Anggota"] = new Anggota();
+                return View("~/Views/Anggota/AddMultipleData.cshtml");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
         [HttpPost("anggota/save")]
         public Task<IActionResult> SaveAnggotaForm(Anggota anggota)
         {
@@ -53,6 +70,25 @@ namespace Perpustakaan.Controllers
             {
                 int statusInfo = 1;
                 int result = anggota.SaveDetails();
+                return Index(statusInfo);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        [HttpPost("anggota/save_multiple")]
+        public Task<IActionResult> SaveMultipleAnggotaForm(List<Anggota> addAnggotas)
+        {
+            try
+            {
+                foreach(Anggota anggota in addAnggotas)
+                {
+                    int result = anggota.SaveDetails();
+                }
+                int statusInfo = 1;
                 return Index(statusInfo);
             }
             catch (Exception ex)

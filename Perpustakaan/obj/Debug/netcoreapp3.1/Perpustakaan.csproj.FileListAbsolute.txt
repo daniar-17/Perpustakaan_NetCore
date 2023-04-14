@@ -392,6 +392,7 @@ C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\P
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.csproj.AssemblyReference.cache
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.GeneratedMSBuildEditorConfig.editorconfig
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.AssemblyInfoInputs.cache
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.AssemblyInfo.cs
@@ -407,6 +408,7 @@ C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\P
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.TagHelpers.output.cache
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.RazorCoreGenerate.cache
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Razor\Views\Anggota\AddData.cshtml.g.cs
+C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Razor\Views\Anggota\AddMultipleData.cshtml.g.cs
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Razor\Views\Anggota\EditModal.cshtml.g.cs
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Razor\Views\Anggota\Index.cshtml.g.cs
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Razor\Views\Anggota\_TableData.cshtml.g.cs
@@ -424,4 +426,3 @@ C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\P
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.dll
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.pdb
 C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.genruntimeconfig.cache
-C:\DANIAR\LATE01\DANIAR N\LEARN\Learn C#\ASPNET Core\PERPUSTAKAAN\Perpustakaan\Perpustakaan\obj\Debug\netcoreapp3.1\Perpustakaan.csproj.AssemblyReference.cache

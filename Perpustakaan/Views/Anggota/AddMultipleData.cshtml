@@ -1,0 +1,158 @@
+﻿@{
+    Anggota Anggota = (Anggota)ViewData["Anggota"];
+    string Title = (string)ViewData["Title"];
+}
+
+@section header_content
+{
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@Title</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">@Title</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container-fluid">
+    <div class="card card-outline card-blue">
+        <div class="card-header">
+            <h3 class="card-title">@Title</h3>
+        </div>
+        <div class="card-body">
+            <form method="post" action="/anggota/save" id="form_data">
+                <table class="table table-striped" id="tblAnggota">
+                    <thead>
+                        <tr>
+                            <th>Id Anggota</th>
+                            <th>Nama Anggota</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Alamat</th>
+                            <th>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="addData">
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" id="id_anggota" name="id_anggota">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama..">
+                            </td>
+                            <td>
+                                <select class="form-control" name="jenis_kelamin" id="jenis_kelamin">
+                                    <option value="Pria">Pria</option>
+                                    <option value="Wanita">Wanita</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat..">
+                            </td>
+                            <td class="text-center"><a href="javascript:;" class="btn btn-success addRow"><i class="fas fa-plus"></i> Add</a></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </form>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-primary" id="btnSave">Simpan</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(function () {
+            //Success Message Function
+            function successMsg(msg) {
+                Swal.fire({
+                    icon: 'success',
+                    title: msg,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+
+            $("body").on("click", ".addRow", function () {
+                var id_anggota = $("#id_anggota");
+                var nama = $("#nama");
+                var jenis_kelamin = $("#jenis_kelamin");
+                var alamat = $("#alamat");
+                var tBody = $("#tblAnggota > tbody")[0];
+                var row = tBody.insertRow(-1);
+                var cell = $(row.insertCell(-1));
+                cell.html(id_anggota.val());
+                cell = $(row.insertCell(-1));
+                cell.html(nama.val());
+                cell = $(row.insertCell(-1));
+                cell.html(jenis_kelamin.val());
+                cell = $(row.insertCell(-1));
+                cell.html(alamat.val());
+                cell = $(row.insertCell(-1));
+
+                var btnRemove = $("<input />");
+                btnRemove.attr("type", "button");
+                btnRemove.attr("onclick", "Remove(this);");
+                btnRemove.attr("class", "btn btn-danger deleteRow")
+                btnRemove.val("Remove");
+                cell.append(btnRemove);
+
+                id_anggota.val("");
+                nama.val("");
+                jenis_kelamin.val("");
+                alamat.val("");
+            });
+
+            $('tbody').on('click', '.deleteRow', function () {
+                $(this).parent().parent().remove();
+            });
+
+            $("body").on("click", "#btnSave", function () {
+                var anggotas = [];
+                var url = '@Url.Action("SaveMultipleAnggotaForm", "Anggota")';
+                var urlBack = '@Url.Action("Index", "Anggota")';
+                $("#tblAnggota tbody tr").each(function () {
+                    var row = $(this);
+                    var anggota = new Object();
+                    anggota.id_anggota = row.find("td").eq(0).html();
+                    anggota.nama = row.find("td").eq(1).html();
+                    anggota.jenis_kelamin = row.find("td").eq(2).html();
+                    anggota.alamat = row.find("td").eq(3).html();
+                    anggotas.push(anggota);
+                });
+
+                Swal.fire({
+                    title: 'Do you Want to Save ',
+                    text: "You won't be able to revert this!",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, Save it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: { addAnggotas: anggotas },
+                            success: function (r) {
+                                successMsg('Berhasil Disimpan');
+                                setTimeout(function () {
+                                    window.location = urlBack;
+                                }, 1700);
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
