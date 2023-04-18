@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 
 using System;
@@ -10,12 +11,14 @@ using System.Threading.Tasks;
 using System.Web;
 
 using Perpustakaan.Models;
+using System.IO;
+using ClosedXML.Excel;
 
 namespace Perpustakaan.Controllers
 {
     public class AnggotaController : Controller
     {
-        private PerpustakaanDBContext _db;
+        private readonly PerpustakaanDBContext _db;
         public AnggotaController(PerpustakaanDBContext db)
         {
             this._db = db;
@@ -129,5 +132,50 @@ namespace Perpustakaan.Controllers
                 return null;
             }
         }
+
+        [HttpPost("upload/anggota")]
+        public Task<IActionResult> UploadData(IFormFile fromFiles)
+        {
+            try
+            {
+                var fileextension = Path.GetExtension(fromFiles.FileName);
+                var filename = Guid.NewGuid().ToString() + fileextension;
+                var filepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "files", filename);
+                using (FileStream fs = System.IO.File.Create(filepath))
+                {
+                    fromFiles.CopyTo(fs);
+                }
+                int rowno = 1;
+                XLWorkbook workbook = XLWorkbook.OpenFromTemplate(filepath);
+                var sheets = workbook.Worksheets.First();
+                var rows = sheets.Rows().ToList();
+                foreach (var row in rows)
+                {
+                    if (rowno != 1)
+                    {
+                        var test = row.Cell(1).Value.ToString();
+                        if (string.IsNullOrWhiteSpace(test) || string.IsNullOrEmpty(test))
+                        {
+                            break;
+                        }
+                        Anggota anggota = new Anggota();
+                        anggota.id_anggota = row.Cell(1).Value.ToString();
+                        anggota.nama = row.Cell(2).Value.ToString();
+                        anggota.jenis_kelamin = row.Cell(3).Value.ToString();
+                        anggota.alamat = row.Cell(4).Value.ToString();
+                        int result = anggota.SaveDetails();
+                    }
+                    rowno += 1;
+                }
+                int statusInfo = 1;
+                return Index(statusInfo);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+        //Last Line
     }
 }

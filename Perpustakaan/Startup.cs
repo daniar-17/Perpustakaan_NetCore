@@ -33,8 +33,13 @@ namespace Perpustakaan
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddControllersWithViews();
-            services.AddDbContext<PerpustakaanDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            //services.AddDbContext<PerpustakaanDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContextPool<PerpustakaanDBContext>(option =>
+            option.UseSqlServer(connectionString));
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
